@@ -2,7 +2,7 @@
 
 ToneShift is an AI-powered text rewriting application that rewrites text while preserving its original meaning.
 
-Built with **Python**, **Streamlit**, and the **OpenRouter API**.
+Built with **Python**, **Streamlit**, and the **OpenRouter API using gemini-2.5-flash**.
 
 ## Features
 
