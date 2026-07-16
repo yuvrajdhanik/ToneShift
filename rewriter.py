@@ -1,5 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
+import streamlit as st
+
 from prompts import (
     build_prompt,
     build_verification_prompt,
@@ -19,8 +21,11 @@ load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 if not OPENROUTER_API_KEY:
+    OPENROUTER_API_KEY = st.secrets.get("OPENROUTER_API_KEY")
+
+if not OPENROUTER_API_KEY:
     raise ValueError(
-        "OPENROUTER_API_KEY not found. Please add it to your .env file."
+        "OPENROUTER_API_KEY not found. Set it in either .env or Streamlit Secrets."
     )
 
 # ------------------------------------
