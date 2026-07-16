@@ -49,7 +49,7 @@ length_labels = {
     2: "✂️ Short",
     3: "📄 Similar to Original",
     4: "📖 Longer",
-    5: "📝 Very Detailed"
+    5: "📝 Even More???"
 }
 
 tone_labels = {
@@ -58,6 +58,12 @@ tone_labels = {
     3: "😊 Casual",
     4: "💼 Professional",
     5: "🏛️ Executive"
+}
+
+fun_mode_labels = {
+    0: "Off",
+    1: "🤓 Nerd Mode",
+    2: "🪶 Shakespearean"
 }
 
 left, right = st.columns(2, gap="large")
@@ -80,25 +86,65 @@ with left:
 
     st.subheader("Length")
 
-    length = st.select_slider(
-        "",
-        options=[1, 2, 3, 4, 5],
-        value=3,
-        format_func=lambda x: length_labels[x],
-        label_visibility="collapsed",
-        key="length_slider"
-    )
+    if st.session_state.get("fun_mode", 0) == 0:
+
+        length = st.select_slider(
+            "",
+            options=[1, 2, 3, 4, 5],
+            value=st.session_state.get("length_slider", 3),
+            format_func=lambda x: length_labels[x],
+            label_visibility="collapsed",
+            key="length_slider"
+        )
+
+    else:
+
+        length = 3
+
+        st.info(
+            "🔒 **Length is locked to 'Similar to Original' while a Fun Mode is active.**"
+        )
 
     st.subheader("Tone")
 
-    tone = st.select_slider(
+    if st.session_state.get("fun_mode", 0) == 0:
+
+        tone = st.select_slider(
+            "",
+            options=[1, 2, 3, 4, 5],
+            value=st.session_state.get("tone_slider", 3),
+            format_func=lambda x: tone_labels[x],
+            label_visibility="collapsed",
+            key="tone_slider"
+        )
+
+    else:
+
+        tone = st.session_state.get("tone_slider", 3)
+
+        st.info(
+            "🔒 **Tone selection is hidden while you are having fun.**"
+        )
+
+    st.subheader("🦝 Questionable Modes")
+
+    fun_mode = st.radio(
         "",
-        options=[1, 2, 3, 4, 5],
-        value=3,
-        format_func=lambda x: tone_labels[x],
+        options=[0, 1, 2],
+        index=st.session_state.get("fun_mode", 0),
+        horizontal=True,
+        format_func=lambda x: fun_mode_labels[x],
         label_visibility="collapsed",
-        key="tone_slider"
+        key="fun_mode"
     )
+
+    st.caption(
+        "⚠ **Fun Modes override Tone and lock Length to 'Similar to Original'.**"
+    )
+
+    if fun_mode != 0:
+        tone = 5 + fun_mode
+        length = 3
 
     rewrite = st.button(
         "✨ Rewrite",
@@ -164,7 +210,7 @@ if rewrite:
         st.warning("Please enter some text before rewriting.")
 
 
-        # -----------------------------
+# -----------------------------
 # Right Panel
 # -----------------------------
 

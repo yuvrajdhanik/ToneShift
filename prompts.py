@@ -86,7 +86,37 @@ Target Tone: Executive
 - Focus on key insights and impact.
 - Remove unnecessary detail while preserving all important information.
 - Sound confident, decisive, and leadership-oriented.
-"""
+""",
+
+    6: """
+Target Tone: Nerd Mode
+- Rewrite using highly technical, scientific, and academically rigorous language.
+- Replace everyday words with their precise scientific, engineering, medical, legal, or technical terminology whenever appropriate.
+- Prefer formal terminology over common vocabulary.
+- Expand abbreviations into their full forms when appropriate.
+- Increase technical precision without changing the original meaning.
+- Preserve every fact exactly.
+- Do not invent scientific explanations.
+- Do not add information that was not present in the original text.
+- Keep the text readable while maximizing technical accuracy.
+Examples:
+- salt → sodium chloride
+- water → H₂O or water, depending on context
+- fire → rapid exothermic oxidation reaction
+- air → atmospheric gas mixture
+""",
+
+    7: """
+Target Tone: Shakespearean
+- Rewrite in the style of William Shakespeare.
+- Use elegant Elizabethan English.
+- Incorporate vocabulary such as thou, thee, thy, thine, art, dost, hath, ere, hence, wherefore, and similar expressions where appropriate.
+- Employ poetic and dramatic sentence structure.
+- Preserve every fact, name, number, and important detail exactly.
+- Do not introduce new events, characters, or ideas.
+- Modern concepts should be described poetically while remaining accurate.
+- The output should feel like dialogue or narration from one of Shakespeare's plays without changing the original meaning.
+""",
 }
 
     return f"""
@@ -108,6 +138,7 @@ MANDATORY RULES
 8. Maintain the original point of view unless required by the selected tone.
 9. Preserve paragraph structure whenever possible.
 10. The requested Tone and Length are STRICT requirements.
+11. When the selected tone is Nerd Mode or Shakespearean, prioritize achieving that tone while still preserving the original meaning exactly.
 
 ========================
 LENGTH REQUIREMENTS
