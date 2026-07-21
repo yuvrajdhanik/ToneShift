@@ -142,8 +142,8 @@ with left:
         "⚠ **Fun Modes override Tone and lock Length to 'Similar to Original'.**"
     )
 
-    if fun_mode != 0:
-        tone = 5 + fun_mode
+    if fun_mode not in (None, 0):
+        tone = 5 + int(fun_mode)
         length = 3
 
     rewrite = st.button(
@@ -183,7 +183,7 @@ if rewrite:
             result = verify_meaning(
                 original=user_text,
                 rewritten=back_text
-            )
+            ) or {}
 
             st.session_state["similarity"] = result.get(
                 "similarity",
