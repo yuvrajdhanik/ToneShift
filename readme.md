@@ -14,8 +14,6 @@ Built with **Python**, **Streamlit**, and the **OpenRouter API using gemini-2.5-
   - Casual
   - Professional
   - Executive
-- 🤓 Nerd Mode
-- 🪶 Shakespearean Mode
 - 🔄 Back Translation
 - 🔍 Semantic Similarity Analysis
 
