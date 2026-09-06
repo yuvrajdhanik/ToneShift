@@ -40,9 +40,7 @@ OPENROUTER_API_KEY=your_api_key_here
 
 Run the application:
 
-```bash
-streamlit run app.py
-```
+py -m streamlit run app.py
 
 ## Project Structure
 

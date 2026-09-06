@@ -31,14 +31,17 @@ Target Length: Similar
 Target Length: Long
 - Expand to approximately 130–160% of the original length.
 - Add clarity, transitions, and explanations.
+- Redundancy is acceptable if it improves understanding.
 - Do NOT introduce new facts or opinions.
 """,
 
         5: """
-Target Length: Very Detailed
+Target Length: Very Detailed and Elaborate
 - Expand to approximately 170–220% of the original length.
 - Elaborate only on information already present.
 - Improve readability and flow.
+- Redundancy is acceptable if it improves understanding.
+- Can use the same facts multiple times to improve clarity.
 - Never invent information.
 """
     }
@@ -56,6 +59,7 @@ Target Tone: Child-Friendly
     2: """
 Target Tone: College Student
 - Write in clear, natural English.
+- Write as if explaining to a college student.
 - Use moderate vocabulary.
 - Sound like a well-written university assignment or discussion.
 - Be easy to read without being overly formal.
@@ -73,6 +77,7 @@ Target Tone: Casual
     4: """
 Target Tone: Professional
 - Use a polished workplace style.
+- Write as if for a professional audience.
 - Maintain an objective and respectful tone.
 - Use precise vocabulary.
 - Avoid contractions, slang, and casual expressions.
